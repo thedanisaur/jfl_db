@@ -2,7 +2,7 @@ INSERT INTO users (user_id, user_email, user_password, user_firstname, user_last
 SELECT
     UUID_TO_BIN(UUID())
     , 'admin@jokerflightlog.com'
-    , 'password123'
+    , '$2a$12$6LM/qJPH8r5J6W5Xd0.A.eUqOpS3zcd8zUlh.43iGGpw1AwYMvQ4u'
     , 'Site'
     , 'Admin'
     , 'JokerOne'
@@ -24,7 +24,7 @@ INSERT INTO users (user_id, user_email, user_password, user_firstname, user_last
 SELECT
     UUID_TO_BIN(UUID())
     , 'joker.instructor@jokerflightlog.com'
-    , 'password123'
+    , '$2a$12$6LM/qJPH8r5J6W5Xd0.A.eUqOpS3zcd8zUlh.43iGGpw1AwYMvQ4u'
     , 'Joker'
     , 'Instructor'
     , 'JokerIP'
@@ -46,7 +46,7 @@ INSERT INTO users (user_id, user_email, user_password, user_firstname, user_last
 SELECT
     UUID_TO_BIN(UUID())
     , 'pilot.test@jokerflightlog.com'
-    , 'password123'
+    , '$2a$12$6LM/qJPH8r5J6W5Xd0.A.eUqOpS3zcd8zUlh.43iGGpw1AwYMvQ4u'
     , 'Test'
     , 'Pilot'
     , 'Rookie'
@@ -68,7 +68,7 @@ INSERT INTO users (user_id, user_email, user_password, user_firstname, user_last
 SELECT
     UUID_TO_BIN(UUID())
     , 'whip@jokerflightlog.com'
-    , 'password123'
+    , '$2a$12$6LM/qJPH8r5J6W5Xd0.A.eUqOpS3zcd8zUlh.43iGGpw1AwYMvQ4u'
     , 'WHIP'
     , 'Pilot'
     , 'WHIP'
@@ -90,7 +90,7 @@ INSERT INTO users (user_id, user_email, user_password, user_firstname, user_last
 SELECT
     UUID_TO_BIN(UUID())
     , 'swat@jokerflightlog.com'
-    , 'password123'
+    , '$2a$12$6LM/qJPH8r5J6W5Xd0.A.eUqOpS3zcd8zUlh.43iGGpw1AwYMvQ4u'
     , 'SWAT'
     , 'Admin'
     , 'SWAT'
@@ -112,7 +112,7 @@ INSERT INTO users (user_id, user_email, user_password, user_firstname, user_last
 SELECT
     UUID_TO_BIN(UUID())
     , 'zero@jokerflightlog.com'
-    , 'password123'
+    , '$2a$12$6LM/qJPH8r5J6W5Xd0.A.eUqOpS3zcd8zUlh.43iGGpw1AwYMvQ4u'
     , 'ZERO'
     , 'Instructor'
     , 'ZERO'
@@ -134,7 +134,7 @@ INSERT INTO users (user_id, user_email, user_password, user_firstname, user_last
 SELECT
     UUID_TO_BIN(UUID())
     , 'student@jokerflightlog.com'
-    , 'password123'
+    , '$2a$12$6LM/qJPH8r5J6W5Xd0.A.eUqOpS3zcd8zUlh.43iGGpw1AwYMvQ4u'
     , 'Student'
     , 'Pilot'
     , 'Student'
@@ -156,7 +156,7 @@ INSERT INTO users (user_id, user_email, user_password, user_firstname, user_last
 SELECT
     UUID_TO_BIN(UUID())
     , 'merlin@jokerflightlog.com'
-    , 'password123'
+    , '$2a$12$6LM/qJPH8r5J6W5Xd0.A.eUqOpS3zcd8zUlh.43iGGpw1AwYMvQ4u'
     , 'MERLIN'
     , 'Officer'
     , 'MERLIN'
@@ -178,7 +178,7 @@ INSERT INTO users (user_id, user_email, user_password, user_firstname, user_last
 SELECT
     UUID_TO_BIN(UUID())
     , 'scheduler@jokerflightlog.com'
-    , 'password123'
+    , '$2a$12$6LM/qJPH8r5J6W5Xd0.A.eUqOpS3zcd8zUlh.43iGGpw1AwYMvQ4u'
     , 'Schedule'
     , 'Manager'
     , 'Scheduler'
@@ -200,7 +200,7 @@ INSERT INTO users (user_id, user_email, user_password, user_firstname, user_last
 SELECT
     UUID_TO_BIN(UUID())
     , 'danosaur@jokerflightlog.com'
-    , 'password123'
+    , '$2a$12$6LM/qJPH8r5J6W5Xd0.A.eUqOpS3zcd8zUlh.43iGGpw1AwYMvQ4u'
     , 'Danosaur'
     , 'Admin'
     , 'Danosaur'
@@ -222,7 +222,7 @@ INSERT INTO users (user_id, user_email, user_password, user_firstname, user_last
 SELECT
     UUID_TO_BIN(UUID())
     , 'longface@jokerflightlog.com'
-    , 'password123'
+    , '$2a$12$6LM/qJPH8r5J6W5Xd0.A.eUqOpS3zcd8zUlh.43iGGpw1AwYMvQ4u'
     , 'LongFace'
     , 'Admin'
     , 'LongFace'
@@ -244,7 +244,7 @@ INSERT INTO users (user_id, user_email, user_password, user_firstname, user_last
 SELECT
     UUID_TO_BIN(UUID())
     , 'noelle@jokerflightlog.com'
-    , 'password123'
+    , '$2a$12$6LM/qJPH8r5J6W5Xd0.A.eUqOpS3zcd8zUlh.43iGGpw1AwYMvQ4u'
     , 'Noelle'
     , 'Admin'
     , 'Noelle'
