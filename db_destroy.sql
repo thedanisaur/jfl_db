@@ -1,0 +1,7 @@
+DROP VIEW IF EXISTS create_users_vw;
+
+DROP TABLE IF EXISTS sessions;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS roles;
+
+DROP SCHEMA jfl;
