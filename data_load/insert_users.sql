@@ -1,4 +1,4 @@
-INSERT INTO users (user_id, user_email, user_password, user_firstname, user_lastname, user_callsign, user_primary_mds, user_secondary_mds, user_ssn_last_4, user_flight_auth_code, user_issuing_unit, user_unit_charged, user_harm_location, user_status, user_is_instructor, user_is_evaluator, user_role_id, user_role_requested_id)
+INSERT INTO users (id, email, password_hash, firstname, lastname, callsign, primary_mds, secondary_mds, ssn_last_4, flight_auth_code, issuing_unit, unit_charged, harm_location, status, is_instructor, is_evaluator, role_id, role_requested_id)
 SELECT
     UUID_TO_BIN(UUID())
     , 'admin@jokerflightlog.com'
@@ -16,11 +16,11 @@ SELECT
     , 'approved'
     , 1
     , 1
-    , r.role_id
-    , r.role_id
-FROM roles r WHERE role_name = 'site_admin';
+    , r.id
+    , r.id
+FROM roles r WHERE r.name = 'site_admin';
 
-INSERT INTO users (user_id, user_email, user_password, user_firstname, user_lastname, user_callsign, user_primary_mds, user_secondary_mds, user_ssn_last_4, user_flight_auth_code, user_issuing_unit, user_unit_charged, user_harm_location, user_status, user_is_instructor, user_is_evaluator, user_role_id, user_role_requested_id)
+INSERT INTO users (id, email, password_hash, firstname, lastname, callsign, primary_mds, secondary_mds, ssn_last_4, flight_auth_code, issuing_unit, unit_charged, harm_location, status, is_instructor, is_evaluator, role_id, role_requested_id)
 SELECT
     UUID_TO_BIN(UUID())
     , 'joker.instructor@jokerflightlog.com'
@@ -38,11 +38,11 @@ SELECT
     , 'approved'
     , 1
     , 0
-    , r.role_id
-    , r.role_id
-FROM roles r WHERE role_name = 'pilot';
+    , r.id
+    , r.id
+FROM roles r WHERE r.name = 'pilot';
 
-INSERT INTO users (user_id, user_email, user_password, user_firstname, user_lastname, user_callsign, user_primary_mds, user_secondary_mds, user_ssn_last_4, user_flight_auth_code, user_issuing_unit, user_unit_charged, user_harm_location, user_status, user_is_instructor, user_is_evaluator, user_role_id, user_role_requested_id)
+INSERT INTO users (id, email, password_hash, firstname, lastname, callsign, primary_mds, secondary_mds, ssn_last_4, flight_auth_code, issuing_unit, unit_charged, harm_location, status, is_instructor, is_evaluator, role_id, role_requested_id)
 SELECT
     UUID_TO_BIN(UUID())
     , 'pilot.test@jokerflightlog.com'
@@ -60,11 +60,11 @@ SELECT
     , 'approved'
     , 0
     , 0
-    , r.role_id
-    , r.role_id
-FROM roles r WHERE role_name = 'pilot';
+    , r.id
+    , r.id
+FROM roles r WHERE r.name = 'pilot';
 
-INSERT INTO users (user_id, user_email, user_password, user_firstname, user_lastname, user_callsign, user_primary_mds, user_secondary_mds, user_ssn_last_4, user_flight_auth_code, user_issuing_unit, user_unit_charged, user_harm_location, user_status, user_is_instructor, user_is_evaluator, user_role_id, user_role_requested_id)
+INSERT INTO users (id, email, password_hash, firstname, lastname, callsign, primary_mds, secondary_mds, ssn_last_4, flight_auth_code, issuing_unit, unit_charged, harm_location, status, is_instructor, is_evaluator, role_id, role_requested_id)
 SELECT
     UUID_TO_BIN(UUID())
     , 'whip@jokerflightlog.com'
@@ -82,11 +82,11 @@ SELECT
     , 'approved'
     , 1
     , 0
-    , r.role_id
-    , r.role_id
-FROM roles r WHERE role_name = 'pilot';
+    , r.id
+    , r.id
+FROM roles r WHERE r.name = 'pilot';
 
-INSERT INTO users (user_id, user_email, user_password, user_firstname, user_lastname, user_callsign, user_primary_mds, user_secondary_mds, user_ssn_last_4, user_flight_auth_code, user_issuing_unit, user_unit_charged, user_harm_location, user_status, user_is_instructor, user_is_evaluator, user_role_id, user_role_requested_id)
+INSERT INTO users (id, email, password_hash, firstname, lastname, callsign, primary_mds, secondary_mds, ssn_last_4, flight_auth_code, issuing_unit, unit_charged, harm_location, status, is_instructor, is_evaluator, role_id, role_requested_id)
 SELECT
     UUID_TO_BIN(UUID())
     , 'swat@jokerflightlog.com'
@@ -104,11 +104,11 @@ SELECT
     , 'approved'
     , 1
     , 1
-    , r.role_id
-    , r.role_id
-FROM roles r WHERE role_name = 'site_admin';
+    , r.id
+    , r.id
+FROM roles r WHERE r.name = 'site_admin';
 
-INSERT INTO users (user_id, user_email, user_password, user_firstname, user_lastname, user_callsign, user_primary_mds, user_secondary_mds, user_ssn_last_4, user_flight_auth_code, user_issuing_unit, user_unit_charged, user_harm_location, user_status, user_is_instructor, user_is_evaluator, user_role_id, user_role_requested_id)
+INSERT INTO users (id, email, password_hash, firstname, lastname, callsign, primary_mds, secondary_mds, ssn_last_4, flight_auth_code, issuing_unit, unit_charged, harm_location, status, is_instructor, is_evaluator, role_id, role_requested_id)
 SELECT
     UUID_TO_BIN(UUID())
     , 'zero@jokerflightlog.com'
@@ -126,11 +126,11 @@ SELECT
     , 'approved'
     , 1
     , 1
-    , r.role_id
-    , r.role_id
-FROM roles r WHERE role_name = 'instructor';
+    , r.id
+    , r.id
+FROM roles r WHERE r.name = 'instructor';
 
-INSERT INTO users (user_id, user_email, user_password, user_firstname, user_lastname, user_callsign, user_primary_mds, user_secondary_mds, user_ssn_last_4, user_flight_auth_code, user_issuing_unit, user_unit_charged, user_harm_location, user_status, user_is_instructor, user_is_evaluator, user_role_id, user_role_requested_id)
+INSERT INTO users (id, email, password_hash, firstname, lastname, callsign, primary_mds, secondary_mds, ssn_last_4, flight_auth_code, issuing_unit, unit_charged, harm_location, status, is_instructor, is_evaluator, role_id, role_requested_id)
 SELECT
     UUID_TO_BIN(UUID())
     , 'student@jokerflightlog.com'
@@ -148,11 +148,11 @@ SELECT
     , 'approved'
     , 0
     , 0
-    , r.role_id
-    , r.role_id
-FROM roles r WHERE role_name = 'student';
+    , r.id
+    , r.id
+FROM roles r WHERE r.name = 'student';
 
-INSERT INTO users (user_id, user_email, user_password, user_firstname, user_lastname, user_callsign, user_primary_mds, user_secondary_mds, user_ssn_last_4, user_flight_auth_code, user_issuing_unit, user_unit_charged, user_harm_location, user_status, user_is_instructor, user_is_evaluator, user_role_id, user_role_requested_id)
+INSERT INTO users (id, email, password_hash, firstname, lastname, callsign, primary_mds, secondary_mds, ssn_last_4, flight_auth_code, issuing_unit, unit_charged, harm_location, status, is_instructor, is_evaluator, role_id, role_requested_id)
 SELECT
     UUID_TO_BIN(UUID())
     , 'merlin@jokerflightlog.com'
@@ -170,11 +170,11 @@ SELECT
     , 'approved'
     , 1
     , 1
-    , r.role_id
-    , r.role_id
-FROM roles r WHERE role_name = 'training_officer';
+    , r.id
+    , r.id
+FROM roles r WHERE r.name = 'training_officer';
 
-INSERT INTO users (user_id, user_email, user_password, user_firstname, user_lastname, user_callsign, user_primary_mds, user_secondary_mds, user_ssn_last_4, user_flight_auth_code, user_issuing_unit, user_unit_charged, user_harm_location, user_status, user_is_instructor, user_is_evaluator, user_role_id, user_role_requested_id)
+INSERT INTO users (id, email, password_hash, firstname, lastname, callsign, primary_mds, secondary_mds, ssn_last_4, flight_auth_code, issuing_unit, unit_charged, harm_location, status, is_instructor, is_evaluator, role_id, role_requested_id)
 SELECT
     UUID_TO_BIN(UUID())
     , 'scheduler@jokerflightlog.com'
@@ -192,11 +192,11 @@ SELECT
     , 'approved'
     , 0
     , 0
-    , r.role_id
-    , r.role_id
-FROM roles r WHERE role_name = 'scheduler';
+    , r.id
+    , r.id
+FROM roles r WHERE r.name = 'scheduler';
 
-INSERT INTO users (user_id, user_email, user_password, user_firstname, user_lastname, user_callsign, user_primary_mds, user_secondary_mds, user_ssn_last_4, user_flight_auth_code, user_issuing_unit, user_unit_charged, user_harm_location, user_status, user_is_instructor, user_is_evaluator, user_role_id, user_role_requested_id)
+INSERT INTO users (id, email, password_hash, firstname, lastname, callsign, primary_mds, secondary_mds, ssn_last_4, flight_auth_code, issuing_unit, unit_charged, harm_location, status, is_instructor, is_evaluator, role_id, role_requested_id)
 SELECT
     UUID_TO_BIN(UUID())
     , 'danosaur@jokerflightlog.com'
@@ -214,11 +214,11 @@ SELECT
     , 'approved'
     , 1
     , 1
-    , r.role_id
-    , r.role_id
-FROM roles r WHERE role_name = 'site_admin';
+    , r.id
+    , r.id
+FROM roles r WHERE r.name = 'site_admin';
 
-INSERT INTO users (user_id, user_email, user_password, user_firstname, user_lastname, user_callsign, user_primary_mds, user_secondary_mds, user_ssn_last_4, user_flight_auth_code, user_issuing_unit, user_unit_charged, user_harm_location, user_status, user_is_instructor, user_is_evaluator, user_role_id, user_role_requested_id)
+INSERT INTO users (id, email, password_hash, firstname, lastname, callsign, primary_mds, secondary_mds, ssn_last_4, flight_auth_code, issuing_unit, unit_charged, harm_location, status, is_instructor, is_evaluator, role_id, role_requested_id)
 SELECT
     UUID_TO_BIN(UUID())
     , 'longface@jokerflightlog.com'
@@ -236,11 +236,11 @@ SELECT
     , 'approved'
     , 1
     , 1
-    , r.role_id
-    , r.role_id
-FROM roles r WHERE role_name = 'site_admin';
+    , r.id
+    , r.id
+FROM roles r WHERE r.name = 'site_admin';
 
-INSERT INTO users (user_id, user_email, user_password, user_firstname, user_lastname, user_callsign, user_primary_mds, user_secondary_mds, user_ssn_last_4, user_flight_auth_code, user_issuing_unit, user_unit_charged, user_harm_location, user_status, user_is_instructor, user_is_evaluator, user_role_id, user_role_requested_id)
+INSERT INTO users (id, email, password_hash, firstname, lastname, callsign, primary_mds, secondary_mds, ssn_last_4, flight_auth_code, issuing_unit, unit_charged, harm_location, status, is_instructor, is_evaluator, role_id, role_requested_id)
 SELECT
     UUID_TO_BIN(UUID())
     , 'noelle@jokerflightlog.com'
@@ -258,6 +258,6 @@ SELECT
     , 'approved'
     , 1
     , 1
-    , r.role_id
-    , r.role_id
-FROM roles r WHERE role_name = 'site_admin';
+    , r.id
+    , r.id
+FROM roles r WHERE r.name = 'site_admin';
