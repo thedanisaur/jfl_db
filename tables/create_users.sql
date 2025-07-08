@@ -2,9 +2,9 @@ CREATE TABLE users (
       id BINARY(16) PRIMARY KEY
     , email VARCHAR(255) NOT NULL
     , password_hash VARCHAR(255) NOT NULL
-    , firstname VARCHAR(255) NOT NULL
-    , lastname VARCHAR(255) NOT NULL
-    , callsign VARCHAR(255) NOT NULL
+    , first_name VARCHAR(255) NOT NULL
+    , last_name VARCHAR(255) NOT NULL
+    , call_sign VARCHAR(255) NOT NULL
     , primary_mds VARCHAR(255) NOT NULL
     , secondary_mds VARCHAR(255) NOT NULL
     , ssn_last_4 CHAR(4) NOT NULL CHECK (ssn_last_4 REGEXP '^[0-9]{4}$')

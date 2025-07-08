@@ -5,9 +5,9 @@ AS
     SELECT  u.id
         , u.email
         , u.password_hash
-        , u.firstname
-        , u.lastname
-        , u.callsign
+        , u.first_name
+        , u.last_name
+        , u.call_sign
         , u.primary_mds
         , u.secondary_mds
         , u.ssn_last_4
