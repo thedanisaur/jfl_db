@@ -2,27 +2,27 @@ DROP VIEW IF EXISTS users_vw;
 
 CREATE OR REPLACE VIEW users_vw
 AS
-    SELECT  u.user_id
-        , u.user_email
-        , u.user_password
-        , u.user_firstname
-        , u.user_lastname
-        , u.user_callsign
-        , u.user_primary_mds
-        , u.user_secondary_mds
-        , u.user_ssn_last_4
-        , u.user_flight_auth_code
-        , u.user_issuing_unit
-        , u.user_unit_charged
-        , u.user_harm_location
-        , u.user_status
-        , u.user_is_instructor
-        , u.user_is_evaluator
-        , r.role_displayname
-        , u.user_created_on
-        , u.user_updated_on
-        , u.user_last_logged_in
+    SELECT  u.id
+        , u.email
+        , u.password_hash
+        , u.first_name
+        , u.last_name
+        , u.call_sign
+        , u.primary_mds
+        , u.secondary_mds
+        , u.ssn_last_4
+        , u.flight_auth_code
+        , u.issuing_unit
+        , u.unit_charged
+        , u.harm_location
+        , u.status
+        , u.is_instructor
+        , u.is_evaluator
+        , r.displayname
+        , u.created_on
+        , u.updated_on
+        , u.last_logged_in
     FROM    users u
         ,   roles r
-    WHERE   u.user_role_id = r.role_id
+    WHERE   u.role_id = r.id
 ;

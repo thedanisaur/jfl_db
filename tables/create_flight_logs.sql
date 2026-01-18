@@ -1,0 +1,41 @@
+CREATE TABLE flight_logs (
+      id BINARY(16) PRIMARY KEY
+    , user_id BINARY(16) NOT NULL
+    , unit_id BINARY(16) NOT NULL
+    , mds VARCHAR(255) NOT NULL
+    , flight_log_date DATE NOT NULL
+    , serial_number VARCHAR(255) NOT NULL
+    , unit_charged VARCHAR(255) NOT NULL
+    , harm_location VARCHAR(255) NOT NULL
+    , flight_authorization VARCHAR(255) NOT NULL
+    , issuing_unit VARCHAR(255) NOT NULL
+    /* Fix this, we should really just have an ops flag and a training flag */
+    , is_training_flight BOOLEAN NOT NULL /* is this for training, in addition to ops*/
+    , is_training_only BOOLEAN NOT NULL /* is this only for training, not for ops*/
+    , total_flight_decimal_time DECIMAL(5,1) NULL
+    , scheduler_signature BINARY(16) NULL
+    , sarm_signature BINARY(16) NULL
+    , instructor_signature BINARY(16) NULL
+    , student_signature BINARY(16) NULL
+    , training_officer_signature BINARY(16) NULL
+    , type VARCHAR(255) NULL
+    , remarks TEXT NULL
+    , created_on DATE NOT NULL
+    , updated_on DATE NOT NULL
+);
+
+DROP TRIGGER IF EXISTS bi_flight_logs;
+DELIMITER $$
+CREATE TRIGGER bi_flight_logs BEFORE INSERT ON flight_logs FOR EACH ROW
+BEGIN
+    IF (NEW.id IS NULL) THEN
+        SET NEW.id = UUID_TO_BIN(UUID());
+    END IF;
+    IF (NEW.created_on IS NULL) THEN
+        SET NEW.created_on = CURDATE();
+    END IF;
+    IF (NEW.updated_on IS NULL) THEN
+        SET NEW.updated_on = CURDATE();
+    END IF;
+END;
+$$
