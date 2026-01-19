@@ -8,7 +8,7 @@ CREATE TABLE missions (
     , takeoff_time TIME NULL
     , land_time TIME NULL
     , total_time_decimal INT NULL
-    , total_time_display VARCHAR(255)
+    , total_time_display VARCHAR(255) NULL
     , touch_and_gos INT NULL
     , full_stops INT NULL
     , total_landings INT NULL
@@ -36,3 +36,6 @@ BEGIN
     END IF;
 END;
 $$
+
+-- Don't forget to reset the delimiter
+DELIMITER ;

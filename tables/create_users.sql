@@ -53,3 +53,6 @@ BEGIN
     END IF;
 END;
 $$
+
+-- Don't forget to reset the delimiter
+DELIMITER ;
