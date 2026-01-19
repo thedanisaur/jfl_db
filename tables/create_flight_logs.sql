@@ -10,18 +10,42 @@ CREATE TABLE flight_logs (
     , flight_authorization VARCHAR(255) NOT NULL
     , issuing_unit VARCHAR(255) NOT NULL
     /* Fix this, we should really just have an ops flag and a training flag */
-    , is_training_flight BOOLEAN NOT NULL /* is this for training, in addition to ops*/
-    , is_training_only BOOLEAN NOT NULL /* is this only for training, not for ops*/
+    , is_training_flight BOOLEAN NOT NULL /* is this for training, in addition to ops */
+    , is_training_only BOOLEAN NOT NULL /* is this only for training, not for ops */
     , total_flight_decimal_time DECIMAL(5,1) NULL
-    , scheduler_signature BINARY(16) NULL
-    , sarm_signature BINARY(16) NULL
-    , instructor_signature BINARY(16) NULL
-    , student_signature BINARY(16) NULL
-    , training_officer_signature BINARY(16) NULL
+    , scheduler_signature_id BINARY(16) NULL
+    , sarm_signature_id BINARY(16) NULL
+    , instructor_signature_id BINARY(16) NULL
+    , student_signature_id BINARY(16) NULL
+    , training_officer_signature_id BINARY(16) NULL
     , type VARCHAR(255) NULL
     , remarks TEXT NULL
     , created_on DATE NOT NULL
     , updated_on DATE NOT NULL
+
+    , CONSTRAINT flight_logs_user_id_fkey FOREIGN KEY (user_id)
+        REFERENCES users (id) MATCH SIMPLE
+        ON UPDATE NO ACTION ON DELETE NO ACTION
+
+    , CONSTRAINT flight_logs_scheduler_id_fkey FOREIGN KEY (user_id)
+        REFERENCES users (id) MATCH SIMPLE
+        ON UPDATE NO ACTION ON DELETE NO ACTION
+
+    , CONSTRAINT flight_logs_sarm_id_fkey FOREIGN KEY (user_id)
+        REFERENCES users (id) MATCH SIMPLE
+        ON UPDATE NO ACTION ON DELETE NO ACTION
+
+    , CONSTRAINT flight_logs_instructor_id_fkey FOREIGN KEY (user_id)
+        REFERENCES users (id) MATCH SIMPLE
+        ON UPDATE NO ACTION ON DELETE NO ACTION
+
+    , CONSTRAINT flight_logs_student_id_fkey FOREIGN KEY (user_id)
+        REFERENCES users (id) MATCH SIMPLE
+        ON UPDATE NO ACTION ON DELETE NO ACTION
+
+    , CONSTRAINT flight_logs_training_officer_id_fkey FOREIGN KEY (user_id)
+        REFERENCES users (id) MATCH SIMPLE
+        ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 DROP TRIGGER IF EXISTS bi_flight_logs;
@@ -31,6 +55,14 @@ BEGIN
     IF (NEW.id IS NULL) THEN
         SET NEW.id = UUID_TO_BIN(UUID());
     END IF;
+    IF (NEW.is_training_flight IS NULL) THEN
+        /* Set is_training_flight to 0 (FALSE) */
+        SET NEW.is_training_flight = 0;
+    END IF;
+    IF (NEW.is_training_only IS NULL) THEN
+        /* Set is_training_only to 0 (FALSE) */
+        SET NEW.is_training_only = 0;
+    END IF;
     IF (NEW.created_on IS NULL) THEN
         SET NEW.created_on = CURDATE();
     END IF;
@@ -39,3 +71,6 @@ BEGIN
     END IF;
 END;
 $$
+
+-- Don't forget to reset the delimiter
+DELIMITER ;
