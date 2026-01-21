@@ -3,7 +3,7 @@ CREATE TABLE flight_logs (
     , user_id BINARY(16) NOT NULL
     , unit_id BINARY(16) NOT NULL
     , mds VARCHAR(255) NOT NULL
-    , flight_log_date DATE NOT NULL
+    , flight_log_date DATETIME NOT NULL
     , serial_number VARCHAR(255) NOT NULL
     , unit_charged VARCHAR(255) NOT NULL
     , harm_location VARCHAR(255) NOT NULL
@@ -20,30 +20,30 @@ CREATE TABLE flight_logs (
     , training_officer_signature_id BINARY(16) NULL
     , type VARCHAR(255) NULL
     , remarks TEXT NULL
-    , created_on DATE NOT NULL
-    , updated_on DATE NOT NULL
+    , created_on DATETIME NOT NULL
+    , updated_on DATETIME NOT NULL
 
     , CONSTRAINT flight_logs_user_id_fkey FOREIGN KEY (user_id)
         REFERENCES users (id) MATCH SIMPLE
         ON UPDATE NO ACTION ON DELETE NO ACTION
 
-    , CONSTRAINT flight_logs_scheduler_id_fkey FOREIGN KEY (user_id)
+    , CONSTRAINT flight_logs_scheduler_id_fkey FOREIGN KEY (scheduler_signature_id)
         REFERENCES users (id) MATCH SIMPLE
         ON UPDATE NO ACTION ON DELETE NO ACTION
 
-    , CONSTRAINT flight_logs_sarm_id_fkey FOREIGN KEY (user_id)
+    , CONSTRAINT flight_logs_sarm_id_fkey FOREIGN KEY (sarm_signature_id)
         REFERENCES users (id) MATCH SIMPLE
         ON UPDATE NO ACTION ON DELETE NO ACTION
 
-    , CONSTRAINT flight_logs_instructor_id_fkey FOREIGN KEY (user_id)
+    , CONSTRAINT flight_logs_instructor_id_fkey FOREIGN KEY (instructor_signature_id)
         REFERENCES users (id) MATCH SIMPLE
         ON UPDATE NO ACTION ON DELETE NO ACTION
 
-    , CONSTRAINT flight_logs_student_id_fkey FOREIGN KEY (user_id)
+    , CONSTRAINT flight_logs_student_id_fkey FOREIGN KEY (student_signature_id)
         REFERENCES users (id) MATCH SIMPLE
         ON UPDATE NO ACTION ON DELETE NO ACTION
 
-    , CONSTRAINT flight_logs_training_officer_id_fkey FOREIGN KEY (user_id)
+    , CONSTRAINT flight_logs_training_officer_id_fkey FOREIGN KEY (training_officer_signature_id)
         REFERENCES users (id) MATCH SIMPLE
         ON UPDATE NO ACTION ON DELETE NO ACTION
 );
@@ -64,10 +64,10 @@ BEGIN
         SET NEW.is_training_only = 0;
     END IF;
     IF (NEW.created_on IS NULL) THEN
-        SET NEW.created_on = CURDATE();
+        SET NEW.created_on = UTC_TIMESTAMP();
     END IF;
     IF (NEW.updated_on IS NULL) THEN
-        SET NEW.updated_on = CURDATE();
+        SET NEW.updated_on = UTC_TIMESTAMP();
     END IF;
 END;
 $$

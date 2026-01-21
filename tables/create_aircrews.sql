@@ -20,11 +20,15 @@ CREATE TABLE aircrews (
     , cond_combat_support_time DECIMAL(5,1) NULL
     , cond_combat_support_sortie INT NULL
     , aircrew_role_type VARCHAR(255) /* TODO [drd] this is auto assigned as Pilot, fix */
-    , created_on DATE NOT NULL
-    , updated_on DATE NOT NULL
+    , created_on DATETIME NOT NULL
+    , updated_on DATETIME NOT NULL
 
     , CONSTRAINT aircrews_flight_log_id_fkey FOREIGN KEY (flight_log_id)
         REFERENCES flight_logs (id) MATCH SIMPLE
+        ON UPDATE NO ACTION ON DELETE NO ACTION
+
+    , CONSTRAINT aircrews_user_id_fkey FOREIGN KEY (user_id)
+        REFERENCES users (id) MATCH SIMPLE
         ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -36,10 +40,10 @@ BEGIN
         SET NEW.id = UUID_TO_BIN(UUID());
     END IF;
     IF (NEW.created_on IS NULL) THEN
-        SET NEW.created_on = CURDATE();
+        SET NEW.created_on = UTC_TIMESTAMP();
     END IF;
     IF (NEW.updated_on IS NULL) THEN
-        SET NEW.updated_on = CURDATE();
+        SET NEW.updated_on = UTC_TIMESTAMP();
     END IF;
 END;
 $$

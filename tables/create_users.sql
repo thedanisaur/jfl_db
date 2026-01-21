@@ -17,9 +17,9 @@ CREATE TABLE users (
     , is_evaluator BOOLEAN NOT NULL
     , role_id BINARY(16) NOT NULL
     , role_requested_id BINARY(16) NULL
-    , created_on DATE NOT NULL
-    , updated_on DATE NOT NULL
-    , last_logged_in DATE NULL
+    , created_on DATETIME NOT NULL
+    , updated_on DATETIME NOT NULL
+    , last_logged_in DATETIME NULL
 
     , UNIQUE (email)
 
@@ -46,10 +46,10 @@ BEGIN
         SET NEW.is_evaluator = 0;
     END IF;
     IF (NEW.created_on IS NULL) THEN
-        SET NEW.created_on = CURDATE();
+        SET NEW.created_on = UTC_TIMESTAMP();
     END IF;
     IF (NEW.updated_on IS NULL) THEN
-        SET NEW.updated_on = CURDATE();
+        SET NEW.updated_on = UTC_TIMESTAMP();
     END IF;
 END;
 $$

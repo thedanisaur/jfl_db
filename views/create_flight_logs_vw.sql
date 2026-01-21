@@ -15,6 +15,8 @@ AS
         , m.mission_symbol
         , m.mission_from
         , m.mission_to
+        , m.takeoff_time
+        , m.land_time
         , BIN_TO_UUID(a.user_id) AS "aircrew_user_id"
         , a.flying_origin
         , a.flight_auth_code

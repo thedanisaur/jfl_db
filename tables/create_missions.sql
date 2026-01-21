@@ -5,16 +5,16 @@ CREATE TABLE missions (
     , mission_symbol VARCHAR(255) NOT NULL
     , mission_from VARCHAR(255) NOT NULL
     , mission_to VARCHAR(255) NOT NULL
-    , takeoff_time TIME NULL
-    , land_time TIME NULL
-    , total_time_decimal INT NULL
+    , takeoff_time DATETIME NULL
+    , land_time DATETIME NULL
+    , total_time_decimal DECIMAL(5,1) NULL
     , total_time_display VARCHAR(255) NULL
     , touch_and_gos INT NULL
     , full_stops INT NULL
     , total_landings INT NULL
     , sorties INT NULL
-    , created_on DATE NOT NULL
-    , updated_on DATE NOT NULL
+    , created_on DATETIME NOT NULL
+    , updated_on DATETIME NOT NULL
 
     , CONSTRAINT missions_flight_log_id_fkey FOREIGN KEY (flight_log_id)
         REFERENCES flight_logs (id) MATCH SIMPLE
@@ -29,10 +29,10 @@ BEGIN
         SET NEW.id = UUID_TO_BIN(UUID());
     END IF;
     IF (NEW.created_on IS NULL) THEN
-        SET NEW.created_on = CURDATE();
+        SET NEW.created_on = UTC_TIMESTAMP();
     END IF;
     IF (NEW.updated_on IS NULL) THEN
-        SET NEW.updated_on = CURDATE();
+        SET NEW.updated_on = UTC_TIMESTAMP();
     END IF;
 END;
 $$

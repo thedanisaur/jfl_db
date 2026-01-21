@@ -4,8 +4,8 @@ CREATE TABLE flight_log_comments (
     , user_id BINARY(16) NOT NULL
     , role_id BINARY(16) NOT NULL
     , comment TEXT NULL
-    , created_on DATE NOT NULL
-    , updated_on DATE NOT NULL
+    , created_on DATETIME NOT NULL
+    , updated_on DATETIME NOT NULL
 
     , CONSTRAINT flight_log_comments_flight_log_id_fkey FOREIGN KEY (flight_log_id)
         REFERENCES flight_logs (id) MATCH SIMPLE
@@ -20,10 +20,10 @@ BEGIN
         SET NEW.id = UUID_TO_BIN(UUID());
     END IF;
     IF (NEW.created_on IS NULL) THEN
-        SET NEW.created_on = CURDATE();
+        SET NEW.created_on = UTC_TIMESTAMP();
     END IF;
     IF (NEW.updated_on IS NULL) THEN
-        SET NEW.updated_on = CURDATE();
+        SET NEW.updated_on = UTC_TIMESTAMP();
     END IF;
 END;
 $$
