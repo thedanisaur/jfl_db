@@ -15,21 +15,11 @@ CREATE TABLE users (
     , status VARCHAR(255) NOT NULL
     , is_instructor BOOLEAN NOT NULL
     , is_evaluator BOOLEAN NOT NULL
-    , role_id BINARY(16) NOT NULL
-    , role_requested_id BINARY(16) NULL
     , created_on DATETIME NOT NULL
     , updated_on DATETIME NOT NULL
     , last_logged_in DATETIME NULL
 
     , UNIQUE (email)
-
-    , CONSTRAINT users_role_id_fkey FOREIGN KEY (role_id)
-        REFERENCES roles (id) MATCH SIMPLE
-        ON UPDATE NO ACTION ON DELETE NO ACTION
-
-    , CONSTRAINT users_role_requested_id_fkey FOREIGN KEY (role_requested_id)
-        REFERENCES roles (id) MATCH SIMPLE
-        ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 DROP TRIGGER IF EXISTS bi_users;

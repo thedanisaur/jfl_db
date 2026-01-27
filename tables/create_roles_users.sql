@@ -1,20 +1,14 @@
-CREATE TABLE flight_log_comments (
+CREATE TABLE roles_users (
       id BINARY(16) PRIMARY KEY
-    , flight_log_id BINARY(16) NOT NULL
-    , user_id BINARY(16) NOT NULL
     , role_id BINARY(16) NOT NULL
-    , comment TEXT NULL
+    , user_id BINARY(16) NOT NULL
     , created_on DATETIME NOT NULL
     , updated_on DATETIME NOT NULL
-
-    , CONSTRAINT flight_log_comments_flight_log_id_fkey FOREIGN KEY (flight_log_id)
-        REFERENCES flight_logs (id) MATCH SIMPLE
-        ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-DROP TRIGGER IF EXISTS bi_flight_log_comments;
+DROP TRIGGER IF EXISTS bi_roles_users;
 DELIMITER $$
-CREATE TRIGGER bi_flight_log_comments BEFORE INSERT ON flight_log_comments FOR EACH ROW
+CREATE TRIGGER bi_roles_users BEFORE INSERT ON roles_users FOR EACH ROW
 BEGIN
     IF (NEW.id IS NULL) THEN
         SET NEW.id = UUID_TO_BIN(UUID());

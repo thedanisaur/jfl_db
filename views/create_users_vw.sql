@@ -22,7 +22,7 @@ AS
         , u.created_on
         , u.updated_on
         , u.last_logged_in
-    FROM    users u
-        ,   roles r
-    WHERE   u.role_id = r.id
+    FROM users u
+    JOIN roles_users ru ON u.id = ru.user_id
+    JOIN roles r ON ru.role_id = r.id
 ;
